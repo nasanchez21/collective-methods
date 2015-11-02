@@ -1,0 +1,30 @@
+#Use this on Instructables.com to locate any known title, author, or category per page
+######
+<pre>
+var title, author, category;
+var searchPhrase = 'The {Paper} Butterfly Costume';// enter what you are looking for here
+
+artoo.scrape('.cover-info', {
+	text: function(){
+		author = $(this).find('.author a').text();
+		title = $(this).find('.title a').text(); 
+		category = $(this).find('.channel a').text();
+		href = $(this).find('.cover-image img');
+		
+		if (author == searchPhrase)  {
+		console.log ('Title: '+title+', By: '+author+', Category: '+category+', Href: '+href);
+		}
+		if ( title == searchPhrase)  {
+		console.log ('Title: '+title+', By: '+author+', Category: '+category+', Href: '+href);
+		}
+		if ( category == searchPhrase)  {
+		console.log ('Title: '+title+', By: '+author+', Category: '+category+', Href: '+href);
+		}
+		else {
+		$(document).ready(function(){
+   			$('.pagination ul>li:last-child>a').click();
+        	})	
+		}
+		}
+  });
+  </pre>
